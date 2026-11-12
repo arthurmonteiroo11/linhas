@@ -51,9 +51,6 @@ import mapa from '../data/mapa.json';
     fill: var(--paper);
     stroke: var(--ink);
     stroke-width: 3;
-    transform-box: fill-box;
-    transform-origin: center;
-    scale: 0;
   }
   .map__station--hub { stroke-width: 3.5; }
 
@@ -68,6 +65,5 @@ import mapa from '../data/mapa.json';
 
   @media (prefers-reduced-motion: reduce) {
     .map__line, .map__shadow { stroke-dashoffset: 0; }
-    .map__station { scale: 1; }
   }
 </style>
