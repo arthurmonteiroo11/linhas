@@ -12,16 +12,15 @@ import mapa from '../data/mapa.json';
       </g>
     ))}
     {linhas.map((l) => (
-      <g class="map__stations" data-line={l.id}>
+      <g class="map__stations" data-line={l.id} data-color={l.cor}>
         {mapa[l.id].estacoes.map((e) => (
           <circle
             class:list={['map__station', { 'map__station--hub': e.integracao }]}
             cx={e.x}
             cy={e.y}
             r={e.integracao ? 9 : 5.5}
-          >
-            <title>{e.nome}</title>
-          </circle>
+            data-name={e.nome}
+          />
         ))}
       </g>
     ))}
@@ -41,6 +40,7 @@ import mapa from '../data/mapa.json';
     ))}
   </svg>
   <figcaption class="map__year data" aria-live="polite">1974</figcaption>
+  <p class="map__tip data" aria-hidden="true"></p>
 </figure>
 
 <style>
@@ -89,6 +89,23 @@ import mapa from '../data/mapa.json';
   @media (min-width: 900px) {
     .map__label { display: inline; }
   }
+
+  .map__tip {
+    --tip-color: var(--ink);
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0.3rem 0.55rem;
+    color: var(--paper);
+    background: var(--ink);
+    box-shadow: 3px 3px 0 var(--tip-color);
+    white-space: nowrap;
+    pointer-events: none;
+    transform: translate(-50%, calc(-100% - 16px));
+    opacity: 0;
+    transition: opacity var(--dur-fast) var(--ease-out);
+  }
+  .map__tip.is-visible { opacity: 1; }
 
   .map__year {
     position: absolute;

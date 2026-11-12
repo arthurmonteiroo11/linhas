@@ -22,16 +22,17 @@ const startSmoothScroll = () => {
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
+  return lenis;
 };
 
 const revealHero = () => {
-  gsap.from('.hero > *', {
-    yPercent: 40,
-    opacity: 0,
-    duration: 1.1,
-    ease: EASE_OUT,
-    stagger: 0.08,
-  });
+  gsap
+    .timeline({ defaults: { ease: EASE_OUT } })
+    .from('.hero__kicker', { y: 16, opacity: 0, duration: 0.8 })
+    .from('.hero__title', { '--wdth': 125, opacity: 0, duration: 1.6 }, '-=0.5')
+    .from('.hero__stripe span', { scaleX: 0, duration: 0.5, ease: 'power2.inOut', stagger: 0.07 }, '-=1.1')
+    .from('.hero__lede', { y: 24, opacity: 0, duration: 1 }, '-=0.6')
+    .from('.hero__hint', { opacity: 0, duration: 0.6 }, '-=0.4');
 };
 
 const buildLineTimeline = (id) => {
@@ -96,12 +97,21 @@ const animateChapters = () => {
       stagger: 0.06,
       scrollTrigger: { trigger: chapter, start: range.reveal },
     });
+
+    gsap.from(chapter.querySelector('.chapter__rule'), {
+      scaleX: 0,
+      duration: 0.7,
+      delay: 0.25,
+      ease: EASE_OUT,
+      scrollTrigger: { trigger: chapter, start: range.reveal },
+    });
   });
 };
 
 export const initMotion = () => {
-  if (prefersReducedMotion()) return;
-  startSmoothScroll();
+  if (prefersReducedMotion()) return { lenis: null, curiositiesTrigger: null };
+  const lenis = startSmoothScroll();
   revealHero();
   animateChapters();
+  return { lenis, curiositiesTrigger: null };
 };
