@@ -1,29 +1,29 @@
 ---
 import linhas from '../data/linhas.json';
-
-// Traçados esquemáticos, não geográficos. Vamos refinar depois com um mapa de referência.
-const paths: Record<string, string> = {
-  azul: 'M300 40 V300 Q300 340 290 380 V560',
-  vermelha: 'M40 300 H300 Q340 300 380 290 H560',
-  verde: 'M150 210 L250 260 Q300 285 350 300 L470 380',
-  lilas: 'M90 560 L170 470 Q200 440 230 430 L290 410',
-  amarela: 'M310 290 L240 330 Q200 350 160 380 L90 430',
-  prata: 'M390 380 L450 450 Q470 475 500 490 L560 520',
-  ouro: 'M200 470 Q240 520 300 520 L360 500',
-  laranja: 'M120 60 L180 140 Q210 180 240 210 L290 260',
-};
+import mapa from '../data/mapa.json';
 ---
 <figure class="map" aria-label="Mapa esquemático das linhas do metrô">
   <svg viewBox="0 0 600 600" role="img">
     <title>Rede do metrô ao longo do tempo</title>
     {linhas.map((l) => (
-      <path
-        class="map__line"
-        data-line={l.id}
-        d={paths[l.id]}
-        stroke={l.cor}
-        pathLength="1"
-      />
+      <g class="map__group" data-line={l.id}>
+        <path class="map__shadow" d={mapa[l.id].d} pathLength="1" />
+        <path class="map__line" d={mapa[l.id].d} stroke={l.cor} pathLength="1" />
+      </g>
+    ))}
+    {linhas.map((l) => (
+      <g class="map__stations" data-line={l.id}>
+        {mapa[l.id].estacoes.map((e) => (
+          <circle
+            class:list={['map__station', { 'map__station--hub': e.integracao }]}
+            cx={e.x}
+            cy={e.y}
+            r={e.integracao ? 9 : 5.5}
+          >
+            <title>{e.nome}</title>
+          </circle>
+        ))}
+      </g>
     ))}
   </svg>
   <figcaption class="map__year data" aria-live="polite">1974</figcaption>
@@ -31,14 +31,32 @@ const paths: Record<string, string> = {
 
 <style>
   .map { position: relative; width: 100%; aspect-ratio: 1; }
-  .map__line {
+  .map svg { overflow: visible; }
+
+  .map__line,
+  .map__shadow {
     fill: none;
-    stroke-width: 9;
+    stroke-width: 14;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
   }
+  .map__shadow {
+    stroke: var(--ink);
+    transform: translate(4px, 4px);
+  }
+
+  .map__station {
+    fill: var(--paper);
+    stroke: var(--ink);
+    stroke-width: 3;
+    transform-box: fill-box;
+    transform-origin: center;
+    scale: 0;
+  }
+  .map__station--hub { stroke-width: 3.5; }
+
   .map__year {
     position: absolute;
     right: 0; bottom: 0;
@@ -47,7 +65,9 @@ const paths: Record<string, string> = {
     font-variation-settings: 'wdth' 70, 'wght' 800;
     color: var(--ink);
   }
+
   @media (prefers-reduced-motion: reduce) {
-    .map__line { stroke-dashoffset: 0; }
+    .map__line, .map__shadow { stroke-dashoffset: 0; }
+    .map__station { scale: 1; }
   }
 </style>
