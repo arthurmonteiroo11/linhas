@@ -31,6 +31,10 @@ const buildLineTimeline = (id) => {
   const strokes = document.querySelectorAll(`.map__group[data-line="${id}"] path`);
   const stations = document.querySelectorAll(`.map__stations[data-line="${id}"] circle`);
   gsap.set(stations, { scale: 0, transformOrigin: '50% 50%' });
+  strokes.forEach((path) => {
+    const length = Math.ceil(path.getTotalLength()) + 1;
+    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+  });
 
   return gsap
     .timeline()

@@ -7,8 +7,8 @@ import mapa from '../data/mapa.json';
     <title>Rede do metrô ao longo do tempo</title>
     {linhas.map((l) => (
       <g class="map__group" data-line={l.id}>
-        <path class="map__shadow" d={mapa[l.id].d} pathLength="1" />
-        <path class="map__line" d={mapa[l.id].d} stroke={l.cor} pathLength="1" />
+        <path class="map__shadow" d={mapa[l.id].d} />
+        <path class="map__line" d={mapa[l.id].d} stroke={l.cor} />
       </g>
     ))}
     {linhas.map((l) => (
@@ -39,8 +39,6 @@ import mapa from '../data/mapa.json';
     stroke-width: 14;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
   }
   .map__shadow {
     stroke: var(--ink);
@@ -61,9 +59,5 @@ import mapa from '../data/mapa.json';
     font-family: var(--font-display);
     font-variation-settings: 'wdth' 70, 'wght' 800;
     color: var(--ink);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .map__line, .map__shadow { stroke-dashoffset: 0; }
   }
 </style>
