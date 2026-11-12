@@ -165,5 +165,6 @@ export const initMotion = () => {
   revealHero();
   animateChapters();
   const curiositiesTrigger = pinCuriosities();
+  document.fonts?.ready.then(() => ScrollTrigger.refresh());
   return { lenis, curiositiesTrigger };
 };

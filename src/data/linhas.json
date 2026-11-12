@@ -12,7 +12,10 @@
     "resumo": "A primeira viagem comercial do primeiro metrô do Brasil, na então Linha Norte-Sul. Sete estações, cerca de 6,4 km.",
     "verificado": true,
     "tipo": "metro",
-    "fonte": "https://diariodotransporte.com.br/2026/09/14/metro-de-sao-paulo-completa-52-anos-com-35-bilhoes-de-passageiros-transportados/"
+    "fontes": [
+      "https://diariodotransporte.com.br/2026/09/14/metro-de-sao-paulo-completa-52-anos-com-35-bilhoes-de-passageiros-transportados/",
+      "https://www.gazetasp.com.br/mobilidade/linha-de-metro-mais-antiga-de-sp-tem-mais-de-20km-de-extensao/"
+    ]
   },
   {
     "id": "vermelha",
@@ -27,7 +30,9 @@
     "resumo": "A Linha Leste-Oeste estreia com três estações, Sé, Pedro II e Brás, e começa a cruzar o centro rumo à zona leste.",
     "verificado": true,
     "tipo": "metro",
-    "fonte": "https://nycsubway.org/wiki/Sao_Paulo_Metro"
+    "fontes": [
+      "https://nycsubway.org/wiki/Sao_Paulo_Metro"
+    ]
   },
   {
     "id": "verde",
@@ -42,7 +47,9 @@
     "resumo": "O metrô chega à Avenida Paulista.",
     "verificado": true,
     "tipo": "metro",
-    "fonte": "https://nycsubway.org/wiki/Sao_Paulo_Metro"
+    "fontes": [
+      "https://nycsubway.org/wiki/Sao_Paulo_Metro"
+    ]
   },
   {
     "id": "lilas",
@@ -54,10 +61,12 @@
     "trecho": "Capão Redondo – Largo Treze",
     "km": 9.4,
     "estacoes": 6,
-    "resumo": "Primeira linha a nascer longe do centro, na zona sul.",
+    "resumo": "Começa na zona sul, longe do centro, ligando Capão Redondo ao Largo Treze: seis estações em 9,4 km.",
     "verificado": true,
     "tipo": "metro",
-    "fonte": "https://www.alstom.com/press-releases-news/2002/10/The-launching-of-Line-5-of-Sao-Paulos-metro-20021020"
+    "fontes": [
+      "https://www.alstom.com/press-releases-news/2002/10/The-launching-of-Line-5-of-Sao-Paulos-metro-20021020"
+    ]
   },
   {
     "id": "amarela",
@@ -69,10 +78,13 @@
     "trecho": "Paulista – Faria Lima",
     "km": 4.9,
     "estacoes": 2,
-    "resumo": "Primeira linha operada por concessão privada, com trens sem condutor.",
+    "resumo": "Primeira linha de São Paulo operada por uma empresa privada, com trens que andam sem condutor.",
     "verificado": true,
     "tipo": "metro",
-    "fonte": "https://exame.com/economia/atraso-dois-anos-linha-4-metro-abre-sp-562677"
+    "fontes": [
+      "https://exame.com/economia/atraso-dois-anos-linha-4-metro-abre-sp-562677",
+      "https://trilhos.motiva.com.br/content/dam/conteudo-multicanal/mobilidade/conteudo/pt/midia/documentos/Texto%20Institucional%20-%20Linha%204%20-%20Amarela.pdf"
+    ]
   },
   {
     "id": "prata",
@@ -87,7 +99,10 @@
     "resumo": "O primeiro monotrilho de São Paulo e do Brasil, inaugurado parcialmente em 2014.",
     "verificado": true,
     "tipo": "monotrilho",
-    "fonte": "https://diariodotransporte.com.br/2024/08/30/dez-anos-de-monotrilho-de-sao-paulo-linha-15-esta-incompleta-e-marcada-por-problemas-e-governo-nao-cogita-mais-este-meio-de-transporte-em-novos-projetos/"
+    "fontes": [
+      "https://diariodotransporte.com.br/2024/08/30/dez-anos-de-monotrilho-de-sao-paulo-linha-15-esta-incompleta-e-marcada-por-problemas-e-governo-nao-cogita-mais-este-meio-de-transporte-em-novos-projetos/",
+      "https://www.revistaoeste.com/historia/14-de-setembro-na-historia-metro-de-sao-paulo-realiza-primeira-viagem/"
+    ]
   },
   {
     "id": "ouro",
@@ -98,11 +113,14 @@
     "data": "2026-03-31",
     "trecho": "Morumbi – Aeroporto de Congonhas",
     "km": 6.7,
-    "estacoes": 8,
-    "resumo": "O 'monotrilho da Copa' abre com 12 anos de atraso, em formato de Y, com ramal para Washington Luís aberto em junho.",
+    "estacoes": 7,
+    "resumo": "O 'monotrilho da Copa' abre com 12 anos de atraso, entre o Morumbi e o Aeroporto de Congonhas. Em junho, a estação Washington Luís completa o formato em Y.",
     "verificado": true,
     "tipo": "monotrilho",
-    "fonte": "https://diariodotransporte.com.br/2026/06/30/linha-17-ouro-tem-horario-de-operacao-ampliado-em-duas-horas-estacao-washington-luis-e-inaugurada-nesta-terca-30-com-12-anos-de-atraso/"
+    "fontes": [
+      "https://diariodotransporte.com.br/2026/06/30/linha-17-ouro-tem-horario-de-operacao-ampliado-em-duas-horas-estacao-washington-luis-e-inaugurada-nesta-terca-30-com-12-anos-de-atraso/",
+      "https://diariodotransporte.com.br/2026/03/31/governador-tarcisio-de-freitas-inaugura-linha-17-ouro-de-monotrilho-e-afirma-que-estudo-da-linha-20-rosa-ficara-pronto-ao-final-de-2026/"
+    ]
   },
   {
     "id": "laranja",
@@ -117,6 +135,8 @@
     "resumo": "Seis primeiras estações em operação assistida. Água Branca vira a estação mais profunda da América Latina, com 47,8 m.",
     "verificado": true,
     "tipo": "metro",
-    "fonte": "https://www.band.com.br/noticias/linha-6-laranja-e-inaugurada-com-estacao-mais-profunda-da-america-latina-202607021046"
+    "fontes": [
+      "https://www.band.com.br/noticias/linha-6-laranja-e-inaugurada-com-estacao-mais-profunda-da-america-latina-202607021046"
+    ]
   }
 ]
