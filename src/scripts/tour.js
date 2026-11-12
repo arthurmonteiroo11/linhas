@@ -63,6 +63,14 @@ export const initTour = ({ lenis, curiositiesTrigger }) => {
   let dwellTimer = 0;
   let frame = 0;
 
+  const setVehicle = (vehicle = 'metro') => {
+    if (root.dataset.vehicle === vehicle) return;
+    root.dataset.vehicle = vehicle;
+    root.classList.remove('is-switching');
+    void root.offsetWidth;
+    root.classList.add('is-switching');
+  };
+
   const setState = (next) => {
     state = next;
     root.dataset.state = next;
@@ -110,7 +118,10 @@ export const initTour = ({ lenis, curiositiesTrigger }) => {
 
     const middle = window.innerHeight / 2;
     const activeChapter = chapters.filter((ch) => ch.getBoundingClientRect().top < middle).at(-1);
-    if (activeChapter) root.style.setProperty('--tour-color', activeChapter.dataset.color);
+    if (activeChapter) {
+      root.style.setProperty('--tour-color', activeChapter.dataset.color);
+      setVehicle(activeChapter.dataset.vehicle);
+    }
 
     const atEnd = window.scrollY >= max - 8;
     if (atEnd && state !== 'end') {
@@ -144,6 +155,10 @@ export const initTour = ({ lenis, curiositiesTrigger }) => {
   window.addEventListener('scroll', () => {
     if (!frame) frame = requestAnimationFrame(updateIndicators);
   }, { passive: true });
+
+  root.addEventListener('animationend', (event) => {
+    if (event.animationName.includes('car-hop')) root.classList.remove('is-switching');
+  });
 
   root.hidden = false;
   setState('idle');

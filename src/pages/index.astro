@@ -34,6 +34,7 @@ const formatDate = (iso: string) =>
           data-line={l.id}
           data-year={l.ano}
           data-color={l.cor}
+          data-vehicle={l.tipo}
           data-label={`Linha ${l.nome}`}
           style={`--line: ${l.cor}`}
         >
@@ -151,7 +152,7 @@ const formatDate = (iso: string) =>
     display: grid;
     align-content: center;
     gap: var(--space-s);
-    padding: var(--space-l) var(--gutter) calc(var(--space-l) + 5rem);
+    padding: var(--space-l) var(--gutter) calc(var(--space-l) + 7.5rem);
     color: var(--ink-soft);
     border-top: 2px solid var(--ink);
   }

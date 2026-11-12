@@ -10,7 +10,8 @@
     "km": 6.4,
     "estacoes": 7,
     "resumo": "A primeira viagem comercial do primeiro metrô do Brasil, na então Linha Norte-Sul. Sete estações, cerca de 6,4 km.",
-    "verificado": true
+    "verificado": true,
+    "tipo": "metro"
   },
   {
     "id": "vermelha",
@@ -23,7 +24,8 @@
     "km": null,
     "estacoes": null,
     "resumo": "A Linha Leste-Oeste começa a cruzar o centro rumo à zona leste.",
-    "verificado": false
+    "verificado": false,
+    "tipo": "metro"
   },
   {
     "id": "verde",
@@ -36,7 +38,8 @@
     "km": null,
     "estacoes": null,
     "resumo": "O metrô chega à Avenida Paulista.",
-    "verificado": false
+    "verificado": false,
+    "tipo": "metro"
   },
   {
     "id": "lilas",
@@ -49,7 +52,8 @@
     "km": null,
     "estacoes": null,
     "resumo": "Primeira linha a nascer longe do centro, na zona sul.",
-    "verificado": false
+    "verificado": false,
+    "tipo": "metro"
   },
   {
     "id": "amarela",
@@ -62,7 +66,8 @@
     "km": null,
     "estacoes": null,
     "resumo": "Primeira linha operada por concessão privada, com trens sem condutor.",
-    "verificado": false
+    "verificado": false,
+    "tipo": "metro"
   },
   {
     "id": "prata",
@@ -75,7 +80,8 @@
     "km": null,
     "estacoes": null,
     "resumo": "O primeiro monotrilho de São Paulo e do Brasil, inaugurado parcialmente em 2014.",
-    "verificado": true
+    "verificado": true,
+    "tipo": "monotrilho"
   },
   {
     "id": "ouro",
@@ -88,7 +94,8 @@
     "km": 6.7,
     "estacoes": 8,
     "resumo": "O 'monotrilho da Copa' abre com 12 anos de atraso, em formato de Y, com ramal para Washington Luís aberto em junho.",
-    "verificado": true
+    "verificado": true,
+    "tipo": "monotrilho"
   },
   {
     "id": "laranja",
@@ -101,6 +108,7 @@
     "km": null,
     "estacoes": 6,
     "resumo": "Seis primeiras estações em operação assistida. Água Branca vira a estação mais profunda da América Latina, com 47,8 m.",
-    "verificado": true
+    "verificado": true,
+    "tipo": "metro"
   }
 ]

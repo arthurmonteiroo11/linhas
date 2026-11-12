@@ -1,91 +1,207 @@
-<nav class="tour" aria-label="Viagem guiada" data-state="idle" hidden>
-  <span class="tour__progress" aria-hidden="true"><span class="tour__bar"></span></span>
-  <p class="tour__next data" aria-live="polite"></p>
-  <div class="tour__actions">
-    <button class="tour__btn" type="button" data-action="toggle">
-      <span class="tour__icon" aria-hidden="true">▶</span>
-      <span class="tour__label">Iniciar viagem</span>
-    </button>
-    <button class="tour__btn tour__btn--square" type="button" data-action="next" aria-label="Próxima parada">
-      <span aria-hidden="true">›</span>
-    </button>
+<nav class="tour" aria-label="Viagem guiada" data-state="idle" data-vehicle="metro" hidden>
+  <div class="tour__car">
+    <span class="tour__progress" aria-hidden="true"><span class="tour__bar"></span></span>
+    <span class="tour__windows" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+    <p class="tour__next data" aria-live="polite"></p>
+    <div class="tour__actions">
+      <button class="tour__btn" type="button" data-action="toggle">
+        <span class="tour__icon" aria-hidden="true">▶</span>
+        <span class="tour__label">Iniciar viagem</span>
+      </button>
+      <button class="tour__btn tour__btn--square" type="button" data-action="next" aria-label="Próxima parada">
+        <span aria-hidden="true">›</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="tour__ground" aria-hidden="true">
+    <span class="tour__bogie"><i></i><i></i></span>
+    <span class="tour__bogie"><i></i><i></i></span>
+    <span class="tour__rail"></span>
+    <span class="tour__beam"></span>
   </div>
 </nav>
 
 <style>
   .tour {
     --tour-color: var(--ink);
+    --led: #f4b23e;
+    --concrete: #a3a7ab;
     position: fixed;
     left: 50%;
     bottom: max(1rem, env(safe-area-inset-bottom));
     z-index: 10;
     translate: -50% 0;
-    width: min(26rem, calc(100% - 2rem));
-    display: grid;
-    gap: 0.5rem;
-    padding: 0.6rem 0.6rem 0.6rem 1rem;
-    background: var(--paper);
-    border: 2px solid var(--ink);
-    box-shadow: 4px 4px 0 var(--ink);
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    overflow: hidden;
+    width: min(30rem, calc(100% - 2rem));
   }
   .tour[hidden] { display: none; }
+
+  .tour__car {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'windows windows'
+      'sign actions';
+    align-items: center;
+    gap: 0.45rem 0.6rem;
+    padding: 0.6rem 1.1rem 0.6rem 0.8rem;
+    background: var(--tour-color);
+    border: 2px solid var(--ink);
+    border-radius: 6px 34px 10px 6px;
+    box-shadow: 4px 4px 0 var(--ink);
+    overflow: hidden;
+    transition: background-color var(--dur-med) var(--ease-out);
+  }
 
   .tour__progress {
     position: absolute;
     inset: 0 0 auto 0;
     height: 4px;
-    background: var(--rule);
+    background: color-mix(in oklab, var(--ink) 35%, transparent);
   }
   .tour__bar {
     display: block;
     height: 100%;
-    background: var(--tour-color);
+    background: var(--paper);
     transform-origin: left;
     transform: scaleX(0);
-    transition: background-color var(--dur-med) var(--ease-out);
+  }
+
+  .tour__windows {
+    grid-area: windows;
+    display: flex;
+    gap: 6px;
+    padding-top: 4px;
+  }
+  .tour__windows i {
+    flex: 1;
+    height: 10px;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 2px;
+  }
+  .tour__windows i:last-child {
+    flex: 0 0 2.2rem;
+    border-radius: 2px 14px 2px 2px;
   }
 
   .tour__next {
-    color: var(--ink-soft);
+    grid-area: sign;
+    min-width: 0;
+    padding: 0.45rem 0.5rem;
+    color: var(--led);
+    background: var(--ink);
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-shadow: 0 0 6px color-mix(in oklab, var(--led) 60%, transparent);
   }
 
-  .tour__actions { display: flex; gap: 0.4rem; }
+  .tour__actions {
+    grid-area: actions;
+    display: flex;
+    gap: 0.4rem;
+  }
 
   .tour__btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    min-height: 2.75rem;
-    padding-inline: 1rem;
+    min-height: 2.6rem;
+    padding-inline: 0.9rem;
     font: 600 var(--step--1) / 1 var(--font-display);
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    color: var(--paper);
-    background: var(--ink);
+    color: var(--ink);
+    background: var(--paper);
     border: 2px solid var(--ink);
+    border-radius: 3px;
     cursor: pointer;
-    transition: scale var(--dur-fast) var(--ease-press), background-color var(--dur-fast) var(--ease-out);
+    transition: scale var(--dur-fast) var(--ease-press), color var(--dur-fast) var(--ease-out),
+      background-color var(--dur-fast) var(--ease-out);
   }
-  .tour__btn:hover { background: var(--tour-color); }
+  .tour__btn:hover { color: var(--paper); background: var(--ink); }
   .tour__btn:active { scale: 0.96; }
-  .tour__btn:focus-visible { outline: 3px solid var(--tour-color); outline-offset: 3px; }
+  .tour__btn:focus-visible { outline: 3px solid var(--paper); outline-offset: 2px; }
 
   .tour__btn--square {
     justify-content: center;
-    width: 2.75rem;
+    width: 2.6rem;
     padding: 0;
     font-size: 1.4rem;
-    color: var(--ink);
-    background: transparent;
   }
-  .tour__btn--square:hover { color: var(--paper); }
-
   .tour[data-state='end'] .tour__btn--square { display: none; }
   .tour__icon { font-size: 0.75em; }
+
+  .tour__ground {
+    position: relative;
+    height: 18px;
+  }
+
+  .tour__bogie {
+    position: absolute;
+    top: -3px;
+    display: flex;
+    gap: 6px;
+  }
+  .tour__bogie:first-child { left: 14%; }
+  .tour__bogie:nth-child(2) { right: 18%; }
+  .tour__bogie i {
+    width: 13px;
+    height: 13px;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: linear-gradient(90deg, transparent 44%, var(--ink) 44% 56%, transparent 56%), var(--paper);
+  }
+
+  .tour__rail {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10px;
+    height: 7px;
+    border-top: 3px solid var(--ink);
+    background: repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 14px);
+    background-size: 14px 100%;
+  }
+
+  .tour__beam {
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    top: -2px;
+    height: 16px;
+    opacity: 0;
+    background: repeating-linear-gradient(90deg, var(--concrete) 0 46px, var(--ink) 46px 48px);
+    border: 2px solid var(--ink);
+    border-top: 0;
+    transition: opacity var(--dur-med) var(--ease-out);
+  }
+
+  .tour__bogie,
+  .tour__rail { transition: opacity var(--dur-med) var(--ease-out); }
+
+  .tour[data-vehicle='monotrilho'] .tour__bogie,
+  .tour[data-vehicle='monotrilho'] .tour__rail { opacity: 0; }
+  .tour[data-vehicle='monotrilho'] .tour__beam { opacity: 1; }
+  .tour[data-vehicle='monotrilho'] .tour__car { border-radius: 18px 34px 6px 6px; }
+
+  .tour[data-state='playing'] .tour__bogie i { animation: wheel-spin 0.5s linear infinite; }
+  .tour[data-state='playing'] .tour__rail { animation: rail-pass 0.35s linear infinite; }
+  .tour[data-state='playing'] .tour__beam { animation: beam-pass 0.9s linear infinite; }
+  .tour[data-state='playing'] .tour__car { animation: car-sway 0.9s var(--ease-in-out) infinite alternate; }
+  .tour.is-switching .tour__car { animation: car-hop 420ms var(--ease-press); }
+
+  @keyframes wheel-spin { to { rotate: 360deg; } }
+  @keyframes rail-pass { to { background-position: -14px 0; } }
+  @keyframes beam-pass { to { background-position: -48px 0; } }
+  @keyframes car-sway { to { translate: 0 1px; } }
+  @keyframes car-hop {
+    40% { translate: 0 -7px; }
+    100% { translate: 0 0; }
+  }
 </style>
