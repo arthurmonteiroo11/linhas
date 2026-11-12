@@ -1,4 +1,4 @@
-const DWELL_MS = { start: 0, chapter: 2800, card: 2200, end: 0 };
+const DWELL_MS = { start: 0, chapter: 1700, card: 1200, end: 0 };
 const LABELS = { idle: 'Iniciar viagem', playing: 'Pausar', paused: 'Continuar', end: 'Voltar ao início' };
 const ICONS = { idle: '▶', playing: '❚❚', paused: '▶', end: '↺' };
 const INTERRUPT_KEYS = new Set(['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End']);
@@ -44,7 +44,7 @@ const createScroller = (lenis) => (y, onArrive) => {
     return onArrive();
   }
 
-  const duration = Math.min(2.4, Math.max(1, distance / 900));
+  const duration = Math.min(1.5, Math.max(0.7, distance / 1400));
   lenis.scrollTo(y, { duration, easing: easeInOutQuint, onComplete: onArrive });
 };
 

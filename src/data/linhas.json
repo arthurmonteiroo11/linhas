@@ -11,7 +11,8 @@
     "estacoes": 7,
     "resumo": "A primeira viagem comercial do primeiro metrô do Brasil, na então Linha Norte-Sul. Sete estações, cerca de 6,4 km.",
     "verificado": true,
-    "tipo": "metro"
+    "tipo": "metro",
+    "fonte": "https://diariodotransporte.com.br/2026/09/14/metro-de-sao-paulo-completa-52-anos-com-35-bilhoes-de-passageiros-transportados/"
   },
   {
     "id": "vermelha",
@@ -22,10 +23,11 @@
     "data": "1979-03-10",
     "trecho": "Sé – Brás",
     "km": null,
-    "estacoes": null,
-    "resumo": "A Linha Leste-Oeste começa a cruzar o centro rumo à zona leste.",
-    "verificado": false,
-    "tipo": "metro"
+    "estacoes": 3,
+    "resumo": "A Linha Leste-Oeste estreia com três estações, Sé, Pedro II e Brás, e começa a cruzar o centro rumo à zona leste.",
+    "verificado": true,
+    "tipo": "metro",
+    "fonte": "https://nycsubway.org/wiki/Sao_Paulo_Metro"
   },
   {
     "id": "verde",
@@ -38,8 +40,9 @@
     "km": null,
     "estacoes": null,
     "resumo": "O metrô chega à Avenida Paulista.",
-    "verificado": false,
-    "tipo": "metro"
+    "verificado": true,
+    "tipo": "metro",
+    "fonte": "https://nycsubway.org/wiki/Sao_Paulo_Metro"
   },
   {
     "id": "lilas",
@@ -49,11 +52,12 @@
     "ano": 2002,
     "data": "2002-10-20",
     "trecho": "Capão Redondo – Largo Treze",
-    "km": null,
-    "estacoes": null,
+    "km": 9.4,
+    "estacoes": 6,
     "resumo": "Primeira linha a nascer longe do centro, na zona sul.",
-    "verificado": false,
-    "tipo": "metro"
+    "verificado": true,
+    "tipo": "metro",
+    "fonte": "https://www.alstom.com/press-releases-news/2002/10/The-launching-of-Line-5-of-Sao-Paulos-metro-20021020"
   },
   {
     "id": "amarela",
@@ -63,11 +67,12 @@
     "ano": 2010,
     "data": "2010-05-25",
     "trecho": "Paulista – Faria Lima",
-    "km": null,
-    "estacoes": null,
+    "km": 4.9,
+    "estacoes": 2,
     "resumo": "Primeira linha operada por concessão privada, com trens sem condutor.",
-    "verificado": false,
-    "tipo": "metro"
+    "verificado": true,
+    "tipo": "metro",
+    "fonte": "https://exame.com/economia/atraso-dois-anos-linha-4-metro-abre-sp-562677"
   },
   {
     "id": "prata",
@@ -81,7 +86,8 @@
     "estacoes": null,
     "resumo": "O primeiro monotrilho de São Paulo e do Brasil, inaugurado parcialmente em 2014.",
     "verificado": true,
-    "tipo": "monotrilho"
+    "tipo": "monotrilho",
+    "fonte": "https://diariodotransporte.com.br/2024/08/30/dez-anos-de-monotrilho-de-sao-paulo-linha-15-esta-incompleta-e-marcada-por-problemas-e-governo-nao-cogita-mais-este-meio-de-transporte-em-novos-projetos/"
   },
   {
     "id": "ouro",
@@ -95,7 +101,8 @@
     "estacoes": 8,
     "resumo": "O 'monotrilho da Copa' abre com 12 anos de atraso, em formato de Y, com ramal para Washington Luís aberto em junho.",
     "verificado": true,
-    "tipo": "monotrilho"
+    "tipo": "monotrilho",
+    "fonte": "https://diariodotransporte.com.br/2026/06/30/linha-17-ouro-tem-horario-de-operacao-ampliado-em-duas-horas-estacao-washington-luis-e-inaugurada-nesta-terca-30-com-12-anos-de-atraso/"
   },
   {
     "id": "laranja",
@@ -109,6 +116,7 @@
     "estacoes": 6,
     "resumo": "Seis primeiras estações em operação assistida. Água Branca vira a estação mais profunda da América Latina, com 47,8 m.",
     "verificado": true,
-    "tipo": "metro"
+    "tipo": "metro",
+    "fonte": "https://www.band.com.br/noticias/linha-6-laranja-e-inaugurada-com-estacao-mais-profunda-da-america-latina-202607021046"
   }
 ]
