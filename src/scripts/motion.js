@@ -10,6 +10,13 @@ const EASE_POP = 'back.out(2.2)';
 const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const isStackedLayout = () => window.matchMedia('(max-width: 899px)').matches;
+
+const chapterRange = () =>
+  isStackedLayout()
+    ? { drawStart: 'top 95%', drawEnd: 'top 50%', reveal: 'top 92%' }
+    : { drawStart: 'top 75%', drawEnd: 'center center', reveal: 'top 70%' };
+
 const startSmoothScroll = () => {
   const lenis = new Lenis({ lerp: 0.1 });
   lenis.on('scroll', ScrollTrigger.update);
@@ -50,6 +57,7 @@ const announceLine = (color = null) => {
 
 const animateChapters = () => {
   const yearLabel = document.querySelector('.map__year');
+  const range = chapterRange();
 
   ScrollTrigger.create({
     trigger: '.story__chapters',
@@ -60,8 +68,8 @@ const animateChapters = () => {
   document.querySelectorAll('.chapter').forEach((chapter) => {
     ScrollTrigger.create({
       trigger: chapter,
-      start: 'top 75%',
-      end: 'center center',
+      start: range.drawStart,
+      end: range.drawEnd,
       scrub: 0.6,
       animation: buildLineTimeline(chapter.dataset.line),
     });
@@ -83,7 +91,7 @@ const animateChapters = () => {
       duration: 0.9,
       ease: EASE_OUT,
       stagger: 0.06,
-      scrollTrigger: { trigger: chapter, start: 'top 70%' },
+      scrollTrigger: { trigger: chapter, start: range.reveal },
     });
   });
 };

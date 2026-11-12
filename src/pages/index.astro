@@ -77,15 +77,16 @@ const formatDate = (iso: string) =>
     position: sticky;
     top: 0;
     z-index: 1;
-    padding-block: var(--space-s);
-    background: color-mix(in oklab, var(--paper) 88%, transparent);
-    max-width: 22rem;
+    margin-inline: calc(var(--gutter) * -1);
+    padding: var(--space-s) var(--gutter);
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
   }
   .story__chapters { list-style: none; padding: 0; }
   .chapter {
-    min-height: 80svh;
+    min-height: 75svh;
     display: grid;
-    align-content: center;
+    align-content: start;
     gap: var(--space-s);
     padding-block: var(--space-l);
     border-top: 1px solid var(--rule);
@@ -112,11 +113,14 @@ const formatDate = (iso: string) =>
     .story { grid-template-columns: 1fr 1fr; gap: var(--space-l); }
     .story__map {
       height: 100svh;
-      max-width: none;
+      margin-inline: 0;
+      padding: 0;
       display: grid;
       align-items: center;
       background: none;
+      border-bottom: 0;
     }
+    .chapter { min-height: 80svh; align-content: center; }
   }
 </style>
 
