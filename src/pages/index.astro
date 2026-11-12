@@ -145,7 +145,7 @@ const formatDate = (iso: string) =>
     box-shadow: 3px 3px 0 var(--ink);
     transform-origin: left;
   }
-  .chapter__route { color: var(--line); filter: brightness(0.8); }
+  .chapter__route { color: color-mix(in oklab, var(--line) 50%, var(--ink)); }
 
   .outro {
     min-height: 60svh;

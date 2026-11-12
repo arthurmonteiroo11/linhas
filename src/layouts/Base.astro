@@ -1,8 +1,18 @@
 ---
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource-variable/source-serif-4';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
 import '../styles/base.css';
 import '../styles/tokens.css';
 
-const { title = 'Linhas', description = 'A história do Metrô de São Paulo, linha por linha.' } = Astro.props;
+const {
+  title = 'Linhas · A história do Metrô de São Paulo',
+  description = 'A história do Metrô de São Paulo contada pelo scroll: cada linha se desenha no mapa no ano em que abriu, de 1974 a 2026.',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const shareImage = new URL('/og.png', Astro.site);
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -11,16 +21,21 @@ const { title = 'Linhas', description = 'A história do Metrô de São Paulo, li
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#efebe3" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <!-- Provisório: depois trocamos por fontes self-hosted em /public/fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
-    />
+    <meta property="og:image" content={shareImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Cartaz com o título Linhas e o mapa esquemático colorido do Metrô de São Paulo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={shareImage} />
   </head>
   <body>
     <slot />

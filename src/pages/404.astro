@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import linhas from '../data/linhas.json';
+---
+<Base title="Estação não encontrada · Linhas" description="Essa página não existe. Volte para a linha principal.">
+  <main class="lost">
+    <p class="lost__kicker data">Erro 404</p>
+    <h1 class="lost__title">Estação<br />não encontrada</h1>
+    <div class="lost__stripe" aria-hidden="true">
+      {linhas.map((l) => <span style={`--line: ${l.cor}`}></span>)}
+    </div>
+    <p class="lost__text">
+      Parece que esse trem saiu dos trilhos. A página que você procurou não existe,
+      mas a linha principal continua funcionando.
+    </p>
+    <a class="lost__link" href="/">Voltar para a linha principal</a>
+  </main>
+</Base>
+
+<style>
+  .lost {
+    min-height: 100svh;
+    display: grid;
+    align-content: center;
+    gap: var(--space-m);
+    padding: var(--gutter);
+  }
+  .lost__kicker { color: var(--ink-soft); }
+  .lost__title {
+    font-size: var(--step-5);
+    font-variation-settings: 'wdth' 62, 'wght' 850;
+    text-transform: uppercase;
+  }
+  .lost__stripe {
+    display: flex;
+    width: min(100%, 40rem);
+    height: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .lost__stripe span {
+    flex: 1;
+    background: var(--line);
+  }
+  .lost__text {
+    font-size: var(--step-1);
+    max-width: 36ch;
+  }
+  .lost__link {
+    justify-self: start;
+    padding: 0.8rem 1.1rem;
+    font: 600 var(--step--1) / 1 var(--font-display);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--line, #e5672a);
+    transition: scale var(--dur-fast) var(--ease-press), translate var(--dur-fast) var(--ease-out);
+  }
+  .lost__link:hover { translate: -2px -2px; }
+  .lost__link:active { scale: 0.96; }
+  .lost__link:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+</style>
