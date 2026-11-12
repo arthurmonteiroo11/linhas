@@ -2,82 +2,345 @@
   "azul": {
     "d": "M300 40 V570",
     "estacoes": [
-      { "nome": "Tucuruvi", "x": 300, "y": 40 },
-      { "nome": "Santana", "x": 300, "y": 110 },
-      { "nome": "Luz", "x": 300, "y": 200, "integracao": true },
-      { "nome": "Sé", "x": 300, "y": 280, "integracao": true },
-      { "nome": "Paraíso", "x": 300, "y": 410, "integracao": true },
-      { "nome": "Vila Mariana", "x": 300, "y": 445 },
-      { "nome": "Santa Cruz", "x": 300, "y": 480, "integracao": true },
-      { "nome": "Jabaquara", "x": 300, "y": 570 }
+      {
+        "nome": "Tucuruvi",
+        "x": 300,
+        "y": 40,
+        "rotulo": {
+          "dx": 12,
+          "dy": 5,
+          "ancora": "start"
+        }
+      },
+      {
+        "nome": "Santana",
+        "x": 300,
+        "y": 110
+      },
+      {
+        "nome": "Luz",
+        "x": 300,
+        "y": 200,
+        "integracao": true,
+        "rotulo": {
+          "dx": 14,
+          "dy": 5,
+          "ancora": "start"
+        }
+      },
+      {
+        "nome": "Sé",
+        "x": 300,
+        "y": 280,
+        "integracao": true,
+        "rotulo": {
+          "dx": 12,
+          "dy": -12,
+          "ancora": "start"
+        }
+      },
+      {
+        "nome": "Paraíso",
+        "x": 300,
+        "y": 410,
+        "integracao": true,
+        "rotulo": {
+          "dx": -14,
+          "dy": 5,
+          "ancora": "end"
+        }
+      },
+      {
+        "nome": "Vila Mariana",
+        "x": 300,
+        "y": 445
+      },
+      {
+        "nome": "Santa Cruz",
+        "x": 300,
+        "y": 480,
+        "integracao": true
+      },
+      {
+        "nome": "Jabaquara",
+        "x": 300,
+        "y": 570,
+        "rotulo": {
+          "dx": 12,
+          "dy": 5,
+          "ancora": "start"
+        }
+      }
     ]
   },
   "vermelha": {
     "d": "M50 230 H160 L210 280 H560",
     "estacoes": [
-      { "nome": "Palmeiras-Barra Funda", "x": 50, "y": 230 },
-      { "nome": "República", "x": 220, "y": 280, "integracao": true },
-      { "nome": "Sé", "x": 300, "y": 280, "integracao": true },
-      { "nome": "Brás", "x": 380, "y": 280 },
-      { "nome": "Tatuapé", "x": 460, "y": 280 },
-      { "nome": "Corinthians-Itaquera", "x": 560, "y": 280 }
+      {
+        "nome": "Palmeiras-Barra Funda",
+        "x": 50,
+        "y": 230,
+        "rotulo": {
+          "dx": -6,
+          "dy": -14,
+          "ancora": "start",
+          "texto": "Barra Funda"
+        }
+      },
+      {
+        "nome": "República",
+        "x": 220,
+        "y": 280,
+        "integracao": true,
+        "rotulo": {
+          "dx": -4,
+          "dy": 26,
+          "ancora": "start"
+        }
+      },
+      {
+        "nome": "Sé",
+        "x": 300,
+        "y": 280,
+        "integracao": true
+      },
+      {
+        "nome": "Brás",
+        "x": 380,
+        "y": 280
+      },
+      {
+        "nome": "Tatuapé",
+        "x": 460,
+        "y": 280
+      },
+      {
+        "nome": "Corinthians-Itaquera",
+        "x": 560,
+        "y": 280,
+        "rotulo": {
+          "dx": 6,
+          "dy": -14,
+          "ancora": "end"
+        }
+      }
     ]
   },
   "verde": {
     "d": "M150 260 L330 440 H340 L410 370 H450",
     "estacoes": [
-      { "nome": "Vila Madalena", "x": 150, "y": 260 },
-      { "nome": "Consolação", "x": 195, "y": 305, "integracao": true },
-      { "nome": "Paraíso", "x": 300, "y": 410, "integracao": true },
-      { "nome": "Chácara Klabin", "x": 340, "y": 440, "integracao": true },
-      { "nome": "Vila Prudente", "x": 450, "y": 370, "integracao": true }
+      {
+        "nome": "Vila Madalena",
+        "x": 150,
+        "y": 260,
+        "rotulo": {
+          "dx": -12,
+          "dy": 5,
+          "ancora": "end"
+        }
+      },
+      {
+        "nome": "Consolação",
+        "x": 195,
+        "y": 305,
+        "integracao": true
+      },
+      {
+        "nome": "Paraíso",
+        "x": 300,
+        "y": 410,
+        "integracao": true
+      },
+      {
+        "nome": "Chácara Klabin",
+        "x": 340,
+        "y": 440,
+        "integracao": true
+      },
+      {
+        "nome": "Vila Prudente",
+        "x": 450,
+        "y": 370,
+        "integracao": true,
+        "rotulo": {
+          "dx": 0,
+          "dy": -16,
+          "ancora": "start"
+        }
+      }
     ]
   },
   "lilas": {
     "d": "M40 520 H150 L190 480 H300 L340 440",
     "estacoes": [
-      { "nome": "Capão Redondo", "x": 40, "y": 520 },
-      { "nome": "Santo Amaro", "x": 120, "y": 520 },
-      { "nome": "Campo Belo", "x": 230, "y": 480, "integracao": true },
-      { "nome": "Santa Cruz", "x": 300, "y": 480, "integracao": true },
-      { "nome": "Chácara Klabin", "x": 340, "y": 440, "integracao": true }
+      {
+        "nome": "Capão Redondo",
+        "x": 40,
+        "y": 520,
+        "rotulo": {
+          "dx": -6,
+          "dy": 24,
+          "ancora": "start"
+        }
+      },
+      {
+        "nome": "Santo Amaro",
+        "x": 120,
+        "y": 520
+      },
+      {
+        "nome": "Campo Belo",
+        "x": 230,
+        "y": 480,
+        "integracao": true
+      },
+      {
+        "nome": "Santa Cruz",
+        "x": 300,
+        "y": 480,
+        "integracao": true
+      },
+      {
+        "nome": "Chácara Klabin",
+        "x": 340,
+        "y": 440,
+        "integracao": true
+      }
     ]
   },
   "amarela": {
     "d": "M300 200 L170 330 H40",
     "estacoes": [
-      { "nome": "Luz", "x": 300, "y": 200, "integracao": true },
-      { "nome": "República", "x": 220, "y": 280, "integracao": true },
-      { "nome": "Paulista", "x": 195, "y": 305, "integracao": true },
-      { "nome": "Faria Lima", "x": 130, "y": 330 },
-      { "nome": "Pinheiros", "x": 90, "y": 330 },
-      { "nome": "Vila Sônia", "x": 40, "y": 330 }
+      {
+        "nome": "Luz",
+        "x": 300,
+        "y": 200,
+        "integracao": true
+      },
+      {
+        "nome": "República",
+        "x": 220,
+        "y": 280,
+        "integracao": true
+      },
+      {
+        "nome": "Paulista",
+        "x": 195,
+        "y": 305,
+        "integracao": true
+      },
+      {
+        "nome": "Faria Lima",
+        "x": 130,
+        "y": 330
+      },
+      {
+        "nome": "Pinheiros",
+        "x": 90,
+        "y": 330
+      },
+      {
+        "nome": "Vila Sônia",
+        "x": 40,
+        "y": 330,
+        "rotulo": {
+          "dx": -6,
+          "dy": 27,
+          "ancora": "start"
+        }
+      }
     ]
   },
   "prata": {
     "d": "M450 370 H580",
     "estacoes": [
-      { "nome": "Vila Prudente", "x": 450, "y": 370, "integracao": true },
-      { "nome": "Oratório", "x": 500, "y": 370 },
-      { "nome": "Jardim Colonial", "x": 580, "y": 370 }
+      {
+        "nome": "Vila Prudente",
+        "x": 450,
+        "y": 370,
+        "integracao": true
+      },
+      {
+        "nome": "Oratório",
+        "x": 500,
+        "y": 370
+      },
+      {
+        "nome": "Jardim Colonial",
+        "x": 580,
+        "y": 370,
+        "rotulo": {
+          "dx": 6,
+          "dy": 24,
+          "ancora": "end"
+        }
+      }
     ]
   },
   "ouro": {
     "d": "M100 450 H200 L270 520 M250 500 V545",
     "estacoes": [
-      { "nome": "Morumbi", "x": 100, "y": 450 },
-      { "nome": "Campo Belo", "x": 230, "y": 480, "integracao": true },
-      { "nome": "Aeroporto de Congonhas", "x": 270, "y": 520 },
-      { "nome": "Washington Luís", "x": 250, "y": 545 }
+      {
+        "nome": "Morumbi",
+        "x": 100,
+        "y": 450,
+        "rotulo": {
+          "dx": -6,
+          "dy": -14,
+          "ancora": "start"
+        }
+      },
+      {
+        "nome": "Campo Belo",
+        "x": 230,
+        "y": 480,
+        "integracao": true
+      },
+      {
+        "nome": "Aeroporto de Congonhas",
+        "x": 270,
+        "y": 520
+      },
+      {
+        "nome": "Washington Luís",
+        "x": 250,
+        "y": 545
+      }
     ]
   },
   "laranja": {
     "d": "M90 120 L140 170 V205 H185",
     "estacoes": [
-      { "nome": "João Paulo I", "x": 90, "y": 120 },
-      { "nome": "Freguesia do Ó", "x": 140, "y": 170 },
-      { "nome": "Água Branca", "x": 140, "y": 205 },
-      { "nome": "Perdizes", "x": 185, "y": 205 }
+      {
+        "nome": "João Paulo I",
+        "x": 90,
+        "y": 120,
+        "rotulo": {
+          "dx": -6,
+          "dy": -14,
+          "ancora": "start"
+        }
+      },
+      {
+        "nome": "Freguesia do Ó",
+        "x": 140,
+        "y": 170
+      },
+      {
+        "nome": "Água Branca",
+        "x": 140,
+        "y": 205
+      },
+      {
+        "nome": "Perdizes",
+        "x": 185,
+        "y": 205,
+        "rotulo": {
+          "dx": 12,
+          "dy": 5,
+          "ancora": "start"
+        }
+      }
     ]
   }
 }

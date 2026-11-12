@@ -37,7 +37,9 @@ const revealHero = () => {
 const buildLineTimeline = (id) => {
   const strokes = document.querySelectorAll(`.map__group[data-line="${id}"] path`);
   const stations = document.querySelectorAll(`.map__stations[data-line="${id}"] circle`);
+  const labels = document.querySelectorAll(`.map__labels[data-line="${id}"] text`);
   gsap.set(stations, { scale: 0, transformOrigin: '50% 50%' });
+  gsap.set(labels, { opacity: 0, y: 4 });
   strokes.forEach((path) => {
     const length = Math.ceil(path.getTotalLength()) + 1;
     gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
@@ -46,7 +48,8 @@ const buildLineTimeline = (id) => {
   return gsap
     .timeline()
     .to(strokes, { strokeDashoffset: 0, ease: 'power1.inOut', duration: 1 })
-    .to(stations, { scale: 1, ease: EASE_POP, duration: 0.25, stagger: 0.05 }, '-=0.15');
+    .to(stations, { scale: 1, ease: EASE_POP, duration: 0.25, stagger: 0.05 }, '-=0.15')
+    .to(labels, { opacity: 1, y: 0, ease: EASE_OUT, duration: 0.3, stagger: 0.04 }, '-=0.1');
 };
 
 const announceLine = (color = null) => {
