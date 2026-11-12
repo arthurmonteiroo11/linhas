@@ -1,0 +1,90 @@
+---
+import curiosidades from '../data/curiosidades.json';
+import linhas from '../data/linhas.json';
+
+const corDa = (id: string) => linhas.find((l) => l.id === id)?.cor ?? 'var(--ink)';
+---
+<section class="curiosities" aria-labelledby="curiosities-title">
+  <header class="curiosities__head">
+    <p class="data">Entre uma estação e outra</p>
+    <h2 id="curiosities-title" class="curiosities__title">Curiosidades do caminho</h2>
+  </header>
+
+  <ol class="curiosities__track">
+    {curiosidades.map((c) => (
+      <li class="curiosity" data-label={c.estacao} style={`--line: ${corDa(c.linha)}`}>
+        <p class="curiosity__number">{c.numero}</p>
+        <p class="curiosity__text">{c.texto}</p>
+        <p class="curiosity__station data">
+          <span class="curiosity__dot" aria-hidden="true"></span>
+          {c.estacao}
+        </p>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .curiosities {
+    min-height: 100svh;
+    display: grid;
+    align-content: center;
+    gap: var(--space-m);
+    padding-block: var(--space-l);
+    border-top: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .curiosities__head { padding-inline: var(--gutter); }
+  .curiosities__title {
+    font-size: var(--step-3);
+    font-variation-settings: 'wdth' 75, 'wght' 750;
+  }
+
+  .curiosities__track {
+    list-style: none;
+    display: flex;
+    gap: var(--space-m);
+    padding: var(--space-s) var(--gutter) 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .curiosities.is-enhanced .curiosities__track {
+    width: max-content;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .curiosity {
+    flex: 0 0 min(78vw, 22rem);
+    min-height: 22rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--space-s);
+    padding: var(--space-m);
+    background: var(--paper-2);
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--ink);
+    scroll-snap-align: center;
+  }
+  .curiosity__number {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 2rem + 5vw, 6rem);
+    font-variation-settings: 'wdth' 62, 'wght' 850;
+    line-height: 0.9;
+    color: var(--line);
+    text-shadow: 3px 3px 0 var(--ink);
+  }
+  .curiosity__station {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .curiosity__dot {
+    flex: none;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: var(--line);
+    border: 2px solid var(--ink);
+  }
+</style>

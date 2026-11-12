@@ -1,0 +1,91 @@
+<nav class="tour" aria-label="Viagem guiada" data-state="idle" hidden>
+  <span class="tour__progress" aria-hidden="true"><span class="tour__bar"></span></span>
+  <p class="tour__next data" aria-live="polite"></p>
+  <div class="tour__actions">
+    <button class="tour__btn" type="button" data-action="toggle">
+      <span class="tour__icon" aria-hidden="true">▶</span>
+      <span class="tour__label">Iniciar viagem</span>
+    </button>
+    <button class="tour__btn tour__btn--square" type="button" data-action="next" aria-label="Próxima parada">
+      <span aria-hidden="true">›</span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  .tour {
+    --tour-color: var(--ink);
+    position: fixed;
+    left: 50%;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 10;
+    translate: -50% 0;
+    width: min(26rem, calc(100% - 2rem));
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.6rem 0.6rem 0.6rem 1rem;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    overflow: hidden;
+  }
+  .tour[hidden] { display: none; }
+
+  .tour__progress {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: var(--rule);
+  }
+  .tour__bar {
+    display: block;
+    height: 100%;
+    background: var(--tour-color);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: background-color var(--dur-med) var(--ease-out);
+  }
+
+  .tour__next {
+    color: var(--ink-soft);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tour__actions { display: flex; gap: 0.4rem; }
+
+  .tour__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding-inline: 1rem;
+    font: 600 var(--step--1) / 1 var(--font-display);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--ink);
+    border: 2px solid var(--ink);
+    cursor: pointer;
+    transition: scale var(--dur-fast) var(--ease-press), background-color var(--dur-fast) var(--ease-out);
+  }
+  .tour__btn:hover { background: var(--tour-color); }
+  .tour__btn:active { scale: 0.96; }
+  .tour__btn:focus-visible { outline: 3px solid var(--tour-color); outline-offset: 3px; }
+
+  .tour__btn--square {
+    justify-content: center;
+    width: 2.75rem;
+    padding: 0;
+    font-size: 1.4rem;
+    color: var(--ink);
+    background: transparent;
+  }
+  .tour__btn--square:hover { color: var(--paper); }
+
+  .tour[data-state='end'] .tour__btn--square { display: none; }
+  .tour__icon { font-size: 0.75em; }
+</style>

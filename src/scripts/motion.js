@@ -37,8 +37,20 @@ const buildLineTimeline = (id) => {
     .to(stations, { scale: 1, ease: EASE_POP, duration: 0.25, stagger: 0.05 }, '-=0.15');
 };
 
+const announceLine = (color = null) => {
+  if (color) document.documentElement.dataset.lineColor = color;
+  else delete document.documentElement.dataset.lineColor;
+  window.dispatchEvent(new CustomEvent('linhas:linha', { detail: { color } }));
+};
+
 const animateChapters = () => {
   const yearLabel = document.querySelector('.map__year');
+
+  ScrollTrigger.create({
+    trigger: '.story__chapters',
+    start: 'top center',
+    onLeaveBack: () => announceLine(),
+  });
 
   document.querySelectorAll('.chapter').forEach((chapter) => {
     ScrollTrigger.create({
@@ -54,7 +66,9 @@ const animateChapters = () => {
       start: 'top center',
       end: 'bottom center',
       onToggle: ({ isActive }) => {
-        if (isActive && yearLabel) yearLabel.textContent = chapter.dataset.year;
+        if (!isActive) return;
+        if (yearLabel) yearLabel.textContent = chapter.dataset.year;
+        announceLine(chapter.dataset.color);
       },
     });
 

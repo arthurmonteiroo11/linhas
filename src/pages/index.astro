@@ -24,7 +24,14 @@ const formatDate = (iso: string) =>
 
     <ol class="story__chapters">
       {linhas.map((l) => (
-        <li class="chapter" data-line={l.id} data-year={l.ano} styles={`--line: ${l.cor}`}>
+        <li
+          class="chapter"
+          data-line={l.id}
+          data-year={l.ano}
+          data-color={l.cor}
+          data-label={`Linha ${l.nome}`}
+          style={`--line: ${l.cor}`}
+        >
           <p class="chapter__meta data">
             <span class="chapter__badge">{l.numero}</span>
             {formatDate(l.data)}
@@ -71,7 +78,7 @@ const formatDate = (iso: string) =>
     top: 0;
     z-index: 1;
     padding-block: var(--space-s);
-    background: var(--paper);
+    background: color-mix(in oklab, var(--paper) 88%, transparent);
     max-width: 22rem;
   }
   .story__chapters { list-style: none; padding: 0; }
@@ -115,5 +122,13 @@ const formatDate = (iso: string) =>
 
 <script>
   import { initMotion } from '../scripts/motion.js';
+
   initMotion();
+
+  const animate = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const loadBackdrop = () =>
+    import('../scripts/backdrop.js').then(({ initBackdrop }) => initBackdrop({ animate }));
+
+  if ('requestIdleCallback' in window) requestIdleCallback(loadBackdrop, { timeout: 1500 });
+  else setTimeout(loadBackdrop, 400);
 </script>

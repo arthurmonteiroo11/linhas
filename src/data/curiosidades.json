@@ -1,0 +1,44 @@
+[
+  {
+    "estacao": "Jabaquara",
+    "linha": "azul",
+    "numero": "1972",
+    "texto": "Ano da primeira viagem de teste do Metrô, entre Jabaquara e Saúde. A operação comercial só começaria dois anos depois.",
+    "fonte": "https://diariodotransporte.com.br/2020/01/25/parabens-sao-paulo-dez-fatos-da-historia-dos-transportes-na-cidade/"
+  },
+  {
+    "estacao": "Vila Mariana",
+    "linha": "azul",
+    "numero": "2.800",
+    "texto": "Passageiros por dia, em média, quando a Linha Norte-Sul ia só do Jabaquara até a Vila Mariana.",
+    "fonte": "https://www.gazetasp.com.br/mobilidade/linha-de-metro-mais-antiga-de-sp-tem-mais-de-20km-de-extensao/"
+  },
+  {
+    "estacao": "Santa Cruz",
+    "linha": "azul",
+    "numero": "41,5 m",
+    "texto": "Foi a estação mais profunda do Metrô por anos, servindo as linhas 1-Azul e 5-Lilás.",
+    "fonte": "https://diariodotransporte.com.br/2026/01/06/obras-da-linha-6-laranja-atingem-77-de-conclusao-e-inicio-da-operacao-e-previsto-para-outubro/"
+  },
+  {
+    "estacao": "Água Branca",
+    "linha": "laranja",
+    "numero": "47,8 m",
+    "texto": "Desde julho de 2026, a estação mais profunda em operação na América Latina.",
+    "fonte": "https://www.band.com.br/noticias/linha-6-laranja-e-inaugurada-com-estacao-mais-profunda-da-america-latina-202607021046"
+  },
+  {
+    "estacao": "Itaberaba-Hospital Vila Penteado",
+    "linha": "laranja",
+    "numero": "65,7 m",
+    "texto": "Ainda em obras. Quando abrir, vai tomar o título da Água Branca.",
+    "fonte": "https://diariodotransporte.com.br/2026/11/02/estacoes-brasilandia-e-itaberaba-hospital-vila-penteado-da-linha-6-laranja-tem-entregas-adiadas-para-fim-de-2026/"
+  },
+  {
+    "estacao": "Aeroporto de Congonhas",
+    "linha": "ouro",
+    "numero": "Y",
+    "texto": "A Linha 17-Ouro é o primeiro sistema sobre trilhos do estado em formato de Y, com três destinos: Morumbi, Congonhas e Washington Luís.",
+    "fonte": "https://diariodotransporte.com.br/2026/06/30/linha-17-ouro-tem-horario-de-operacao-ampliado-em-duas-horas-estacao-washington-luis-e-inaugurada-nesta-terca-30-com-12-anos-de-atraso/"
+  }
+]
