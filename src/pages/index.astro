@@ -1,0 +1,119 @@
+---
+import Base from '../layouts/Base.astro';
+import LineMap from '../components/LineMap.astro';
+import linhas from '../data/linhas.json';
+
+const formatDate = (iso: string) =>
+  new Date(iso + 'T12:00:00').toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base>
+  <header class="hero">
+    <p class="hero__kicker data">São Paulo · 1974 — 2026</p>
+    <h1 class="hero__title">Linhas</h1>
+    <p class="hero__lede">
+      Em 1974, sete estações. Hoje, uma rede que carrega milhões de pessoas por dia.
+      Esta é a história de como ela foi desenhada, um traço por vez.
+    </p>
+    <span class="hero__hint data" aria-hidden="true">role ↓</span>
+  </header>
+
+  <section class="story">
+    <div class="story__map">
+      <LineMap />
+    </div>
+
+    <ol class="story__chapters">
+      {linhas.map((l) => (
+        <li class="chapter" data-line={l.id} data-year={l.ano} styles={`--line: ${l.cor}`}>
+          <p class="chapter__meta data">
+            <span class="chapter__badge">{l.numero}</span>
+            {formatDate(l.data)}
+          </p>
+          <h2 class="chapter__title">Linha {l.nome}</h2>
+          <p class="chapter__route data">{l.trecho}</p>
+          <p class="chapter__text">{l.resumo}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <footer class="outro">
+    <p class="data">Feito por Arthur Monteiro · dados de fontes públicas, citadas no README</p>
+  </footer>
+</Base>
+
+<style>
+  .hero {
+    min-height: 100svh;
+    display: grid;
+    align-content: end;
+    gap: var(--space-m);
+    padding: var(--gutter);
+    padding-bottom: var(--space-l);
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero__kicker { color: var(--ink-soft); }
+  .hero__title {
+    font-size: var(--step-5);
+    font-variation-settings: 'wdth' 62, 'wght' 850;
+    text-transform: uppercase;
+  }
+  .hero__lede { font-size: var(--step-1); max-width: 34ch; }
+  .hero__hint { color: var(--ink-soft); }
+
+  .story {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: var(--gutter);
+  }
+  .story__map {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-block: var(--space-s);
+    background: var(--paper);
+    max-width: 22rem;
+  }
+  .story__chapters { list-style: none; padding: 0; }
+  .chapter {
+    min-height: 80svh;
+    display: grid;
+    align-content: center;
+    gap: var(--space-s);
+    padding-block: var(--space-l);
+    border-top: 1px solid var(--rule);
+  }
+  .chapter__meta { display: flex; align-items: center; gap: 0.6rem; color: var(--ink-soft); }
+  .chapter__badge {
+    display: inline-grid;
+    place-items: center;
+    width: 2rem; height: 2rem;
+    border-radius: 50%;
+    background: var(--line);
+    color: var(--paper);
+    font-weight: 500;
+  }
+  .chapter__title {
+    font-size: var(--step-3);
+    font-variation-settings: 'wdth' 75, 'wght' 750;
+  }
+  .chapter__route { color: var(--line); filter: brightness(0.8); }
+
+  .outro { padding: var(--space-l) var(--gutter); color: var(--ink-soft); border-top: 1px solid var(--rule); }
+
+  @media (min-width: 900px) {
+    .story { grid-template-columns: 1fr 1fr; gap: var(--space-l); }
+    .story__map {
+      height: 100svh;
+      max-width: none;
+      display: grid;
+      align-items: center;
+      background: none;
+    }
+  }
+</style>
+
+<script>
+  import { initMotion } from '../scripts/motion.js';
+  initMotion();
+</script>

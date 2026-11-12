@@ -1,0 +1,33 @@
+@layer tokens {
+  :root {
+    /* Base: papel de bilhete antigo + tinta. As cores vêm das linhas. */
+    --paper: #efebe3;
+    --paper-2: #e4dfd4;
+    --ink: #16171a;
+    --ink-soft: #55565b;
+    --rule: color-mix(in oklab, var(--ink) 18%, transparent);
+
+    --font-display: 'Archivo', 'Arial Narrow', sans-serif;
+    --font-text: 'Source Serif 4', Georgia, serif;
+    --font-data: 'IBM Plex Mono', ui-monospace, monospace;
+
+    --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.92rem);
+    --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+    --step-1: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+    --step-3: clamp(2rem, 1.4rem + 3vw, 3.6rem);
+    --step-5: clamp(3.2rem, 1.2rem + 9vw, 9.5rem);
+
+    --space-s: clamp(0.75rem, 0.6rem + 0.6vw, 1.1rem);
+    --space-m: clamp(1.25rem, 0.9rem + 1.5vw, 2.25rem);
+    --space-l: clamp(2.5rem, 1.6rem + 4vw, 6rem);
+    --gutter: clamp(1rem, 0.5rem + 2.5vw, 3rem);
+
+    /* Curvas de movimento do projeto. Use só estas. */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+    --ease-press: cubic-bezier(0.2, 0.9, 0.1, 1.05);
+    --dur-fast: 180ms;
+    --dur-med: 480ms;
+    --dur-slow: 1100ms;
+  }
+}

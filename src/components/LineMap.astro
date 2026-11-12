@@ -1,0 +1,53 @@
+---
+import linhas from '../data/linhas.json';
+
+// Traçados esquemáticos, não geográficos. Vamos refinar depois com um mapa de referência.
+const paths: Record<string, string> = {
+  azul: 'M300 40 V300 Q300 340 290 380 V560',
+  vermelha: 'M40 300 H300 Q340 300 380 290 H560',
+  verde: 'M150 210 L250 260 Q300 285 350 300 L470 380',
+  lilas: 'M90 560 L170 470 Q200 440 230 430 L290 410',
+  amarela: 'M310 290 L240 330 Q200 350 160 380 L90 430',
+  prata: 'M390 380 L450 450 Q470 475 500 490 L560 520',
+  ouro: 'M200 470 Q240 520 300 520 L360 500',
+  laranja: 'M120 60 L180 140 Q210 180 240 210 L290 260',
+};
+---
+<figure class="map" aria-label="Mapa esquemático das linhas do metrô">
+  <svg viewBox="0 0 600 600" role="img">
+    <title>Rede do metrô ao longo do tempo</title>
+    {linhas.map((l) => (
+      <path
+        class="map__line"
+        data-line={l.id}
+        d={paths[l.id]}
+        stroke={l.cor}
+        pathLength="1"
+      />
+    ))}
+  </svg>
+  <figcaption class="map__year data" aria-live="polite">1974</figcaption>
+</figure>
+
+<style>
+  .map { position: relative; width: 100%; aspect-ratio: 1; }
+  .map__line {
+    fill: none;
+    stroke-width: 9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .map__year {
+    position: absolute;
+    right: 0; bottom: 0;
+    font-size: var(--step-3);
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 70, 'wght' 800;
+    color: var(--ink);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .map__line { stroke-dashoffset: 0; }
+  }
+</style>
