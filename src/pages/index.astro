@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import LineMap from '../components/LineMap.astro';
 import TourControl from '../components/TourControl.astro';
+import Curiosidades from '../components/Curiosidades.astro';
 import linhas from '../data/linhas.json';
 
 const formatDate = (iso: string) =>
@@ -48,6 +49,8 @@ const formatDate = (iso: string) =>
       ))}
     </ol>
   </section>
+
+  <Curiosidades />
 
   <footer class="outro">
     <p class="outro__kicker data">Fim da linha</p>

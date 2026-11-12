@@ -16,23 +16,26 @@
   {
     "estacao": "Santa Cruz",
     "linha": "azul",
-    "numero": "41,5 m",
+    "numero": "41,5",
     "texto": "Foi a estação mais profunda do Metrô por anos, servindo as linhas 1-Azul e 5-Lilás.",
-    "fonte": "https://diariodotransporte.com.br/2026/01/06/obras-da-linha-6-laranja-atingem-77-de-conclusao-e-inicio-da-operacao-e-previsto-para-outubro/"
+    "fonte": "https://diariodotransporte.com.br/2026/01/06/obras-da-linha-6-laranja-atingem-77-de-conclusao-e-inicio-da-operacao-e-previsto-para-outubro/",
+    "unidade": "m"
   },
   {
     "estacao": "Água Branca",
     "linha": "laranja",
-    "numero": "47,8 m",
+    "numero": "47,8",
     "texto": "Desde julho de 2026, a estação mais profunda em operação na América Latina.",
-    "fonte": "https://www.band.com.br/noticias/linha-6-laranja-e-inaugurada-com-estacao-mais-profunda-da-america-latina-202607021046"
+    "fonte": "https://www.band.com.br/noticias/linha-6-laranja-e-inaugurada-com-estacao-mais-profunda-da-america-latina-202607021046",
+    "unidade": "m"
   },
   {
     "estacao": "Itaberaba-Hospital Vila Penteado",
     "linha": "laranja",
-    "numero": "65,7 m",
+    "numero": "65,7",
     "texto": "Ainda em obras. Quando abrir, vai tomar o título da Água Branca.",
-    "fonte": "https://diariodotransporte.com.br/2026/11/02/estacoes-brasilandia-e-itaberaba-hospital-vila-penteado-da-linha-6-laranja-tem-entregas-adiadas-para-fim-de-2026/"
+    "fonte": "https://diariodotransporte.com.br/2026/11/02/estacoes-brasilandia-e-itaberaba-hospital-vila-penteado-da-linha-6-laranja-tem-entregas-adiadas-para-fim-de-2026/",
+    "unidade": "m"
   },
   {
     "estacao": "Aeroporto de Congonhas",

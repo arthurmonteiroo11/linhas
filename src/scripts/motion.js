@@ -108,10 +108,62 @@ const animateChapters = () => {
   });
 };
 
+const animateCuriosityCards = (section, track, scroller) => {
+  const cards = track.querySelectorAll('.curiosity');
+
+  gsap.from(cards, {
+    y: 56,
+    rotate: (i) => (i % 2 ? 3 : -3),
+    opacity: 0,
+    duration: 0.9,
+    ease: EASE_OUT,
+    stagger: 0.08,
+    scrollTrigger: { trigger: section, start: 'top 70%' },
+  });
+
+  cards.forEach((card) => {
+    ScrollTrigger.create({
+      trigger: card,
+      containerAnimation: scroller,
+      start: 'left center',
+      end: 'right center',
+      onToggle: ({ isActive }) => {
+        if (isActive) announceLine(card.dataset.color);
+      },
+    });
+  });
+};
+
+const pinCuriosities = () => {
+  const section = document.querySelector('.curiosities');
+  const track = section?.querySelector('.curiosities__track');
+  if (!section || !track) return null;
+
+  section.classList.add('is-enhanced');
+  const distance = () => Math.max(0, track.offsetWidth - window.innerWidth);
+
+  const scroller = gsap.to(track, {
+    x: () => -distance(),
+    ease: 'none',
+    scrollTrigger: {
+      trigger: section,
+      start: 'top top',
+      end: () => `+=${distance()}`,
+      pin: true,
+      scrub: 0.6,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  animateCuriosityCards(section, track, scroller);
+  return scroller.scrollTrigger;
+};
+
 export const initMotion = () => {
   if (prefersReducedMotion()) return { lenis: null, curiositiesTrigger: null };
   const lenis = startSmoothScroll();
   revealHero();
   animateChapters();
-  return { lenis, curiositiesTrigger: null };
+  const curiositiesTrigger = pinCuriosities();
+  return { lenis, curiositiesTrigger };
 };

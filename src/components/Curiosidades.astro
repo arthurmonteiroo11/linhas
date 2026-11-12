@@ -12,8 +12,16 @@ const corDa = (id: string) => linhas.find((l) => l.id === id)?.cor ?? 'var(--ink
 
   <ol class="curiosities__track">
     {curiosidades.map((c) => (
-      <li class="curiosity" data-label={c.estacao} style={`--line: ${corDa(c.linha)}`}>
-        <p class="curiosity__number">{c.numero}</p>
+      <li
+        class="curiosity"
+        data-label={c.estacao}
+        data-color={corDa(c.linha)}
+        style={`--line: ${corDa(c.linha)}`}
+      >
+        <p class="curiosity__number">
+          {c.numero}
+          {c.unidade && <span class="curiosity__unit">{c.unidade}</span>}
+        </p>
         <p class="curiosity__text">{c.texto}</p>
         <p class="curiosity__station data">
           <span class="curiosity__dot" aria-hidden="true"></span>
@@ -73,6 +81,11 @@ const corDa = (id: string) => linhas.find((l) => l.id === id)?.cor ?? 'var(--ink
     line-height: 0.9;
     color: var(--line);
     text-shadow: 3px 3px 0 var(--ink);
+    white-space: nowrap;
+  }
+  .curiosity__unit {
+    margin-left: 0.08em;
+    font-size: 0.45em;
   }
   .curiosity__station {
     display: flex;
