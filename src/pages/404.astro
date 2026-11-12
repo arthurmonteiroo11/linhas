@@ -58,7 +58,9 @@ import linhas from '../data/linhas.json';
     box-shadow: 4px 4px 0 var(--line, #e5672a);
     transition: scale var(--dur-fast) var(--ease-press), translate var(--dur-fast) var(--ease-out);
   }
-  .lost__link:hover { translate: -2px -2px; }
+  @media (hover: hover) {
+    .lost__link:hover { translate: -2px -2px; }
+  }
   .lost__link:active { scale: 0.96; }
   .lost__link:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
 </style>

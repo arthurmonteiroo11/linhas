@@ -92,6 +92,11 @@ const corDa = (id: string) => linhas.find((l) => l.id === id)?.cor ?? 'var(--ink
     align-items: center;
     gap: 0.5rem;
   }
+  @media (max-width: 560px) {
+    .curiosities { gap: var(--space-s); padding-bottom: 8rem; }
+    .curiosity { min-height: 17rem; padding: var(--space-s) var(--space-m); }
+  }
+
   .curiosity__dot {
     flex: none;
     width: 0.8rem;

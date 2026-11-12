@@ -147,8 +147,12 @@ export const initTour = ({ lenis, curiositiesTrigger }) => {
     goToNextStop();
   });
 
-  window.addEventListener('wheel', interrupt, { passive: true });
-  window.addEventListener('touchstart', interrupt, { passive: true });
+  const interruptFromOutside = (event) => {
+    if (!root.contains(event.target)) interrupt();
+  };
+
+  window.addEventListener('wheel', interruptFromOutside, { passive: true });
+  window.addEventListener('touchstart', interruptFromOutside, { passive: true });
   window.addEventListener('keydown', (event) => {
     if (INTERRUPT_KEYS.has(event.key) && !root.contains(event.target)) interrupt();
   });

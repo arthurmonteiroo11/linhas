@@ -121,10 +121,13 @@
     border: 2px solid var(--ink);
     border-radius: 3px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     transition: scale var(--dur-fast) var(--ease-press), color var(--dur-fast) var(--ease-out),
       background-color var(--dur-fast) var(--ease-out);
   }
-  .tour__btn:hover { color: var(--paper); background: var(--ink); }
+  @media (hover: hover) {
+    .tour__btn:hover { color: var(--paper); background: var(--ink); }
+  }
   .tour__btn:active { scale: 0.96; }
   .tour__btn:focus-visible { outline: 3px solid var(--paper); outline-offset: 2px; }
 
@@ -195,6 +198,31 @@
   .tour[data-state='playing'] .tour__beam { animation: beam-pass 0.55s linear infinite; }
   .tour[data-state='playing'] .tour__car { animation: car-sway 0.9s var(--ease-in-out) infinite alternate; }
   .tour.is-switching .tour__car { animation: car-hop 420ms var(--ease-press); }
+
+  @media (max-width: 560px) {
+    .tour__car {
+      gap: 0.35rem 0.45rem;
+      padding: 0.5rem 0.9rem 0.5rem 0.6rem;
+      border-radius: 6px 26px 8px 6px;
+    }
+    .tour__windows { gap: 5px; }
+    .tour__windows i { height: 8px; }
+    .tour__next { font-size: 0.78rem; }
+    .tour__btn {
+      min-height: 2.75rem;
+      padding-inline: 0.85rem;
+    }
+    .tour__btn--square { width: 2.75rem; }
+    .tour__icon { font-size: 0.9em; }
+    .tour__label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+  }
 
   @keyframes wheel-spin { to { rotate: 360deg; } }
   @keyframes rail-pass { to { background-position: -14px 0; } }
